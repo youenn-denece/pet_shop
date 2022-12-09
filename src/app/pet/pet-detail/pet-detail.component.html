@@ -1,9 +1,10 @@
  <div class="pet-detail">
   <div *ngIf="pet; else noPetSelected" class="pet-info">
     <div class="title">
-      <h1>{{ pet.name }}</h1>
+      <h1>{{ pet.name | titlecase }}</h1>
       <h2>{{ pet.species }}</h2>
     </div>
+    <img [src]="pet.imageUrl" [alt]="pet.name">
     <p class="price">{{ pet.price }} €</p>
     <p [class]="pet.isAvailable ? 'available' : 'sold'">
       {{ pet.isAvailable ? "Disponible" : "Vendu" }}

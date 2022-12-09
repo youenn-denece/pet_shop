@@ -1,4 +1,4 @@
-export type Species = 'chien'|'chat'|'lapin'|'poisson';
+export type Species = 'chien'|'chat'|'lapin'|'poisson'|'dauphin';
 
 export interface IPet {
   id: number;
@@ -6,4 +6,5 @@ export interface IPet {
   species: Species;
   price: number;
   isAvailable: boolean;
+  imageUrl?: string;
 }

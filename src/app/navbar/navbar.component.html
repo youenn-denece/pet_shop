@@ -1,4 +1,5 @@
 <div class="navbar">
     <a routerLink="home">Home</a>
     <a routerLink="pet">Animaux</a>
+    <button [ngClass]="{green: isAuth, red: !isAuth}" (click)="onToggleAuth()">{{ isAuth ? "Connecté" : "Déconnecté" }}</button>
 </div>

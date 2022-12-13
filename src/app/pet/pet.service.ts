@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 import { IPet, Species } from './model/pets';
 
 @Injectable({
@@ -8,7 +8,8 @@ import { IPet, Species } from './model/pets';
 })
 export class PetService {
   pets: IPet[] = [];
-  selectedPet: IPet | undefined | null;
+  petsReady$ = new Subject<void>();
+  //selectedPet: IPet | undefined | null;
   isCreatingPet: boolean = false;
   private petsUrl= 'https://formation-6e588-default-rtdb.europe-west1.firebasedatabase.app/pets.json';
 
@@ -58,11 +59,8 @@ export class PetService {
       });
   }
 
-  selectPet(petId: string): void  {
-    if (this.selectedPet?.id === petId) {
-      this.selectedPet = null;
-    } else {
-      this.selectedPet = this.pets.find((pet) => pet.id === petId);
-    }
+  petWithId(petId: string) {
+    return this.pets.find((pet) => pet.id === petId);
   }
+
 }

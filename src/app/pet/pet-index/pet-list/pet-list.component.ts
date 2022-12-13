@@ -9,6 +9,7 @@ import { PetService } from '../../pet.service';
   styleUrls: ['./pet-list.component.scss'],
 })
 export class PetListComponent implements OnInit {
+
   constructor(private petService: PetService) {}
 
   get petList(): IPet[] {
@@ -16,8 +17,4 @@ export class PetListComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
-  onClickPet(id: string): void {
-    this.petService.selectPet(id);
-  }
 }

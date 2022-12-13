@@ -1,0 +1,16 @@
+<div class="add-pet">
+    <button [routerLink]="['..', 'index']">Retour à la liste</button>
+    <form [formGroup]="petForm" (ngSubmit)="onSubmit()">
+        <input type="text" placeholder="Nom" formControlName="name">
+        <select formControlName="species">
+            <option *ngFor="let spec of species" [value]="spec">{{ spec }}</option>
+        </select>
+        <input type="number" placeholder="Prix" formControlName="price">
+        <div>
+            <label for="disponible">Disponible</label>
+            <input type="checkbox" id="disponible" formControlName="isAvailable">
+        </div>
+        <input type="text" placeholder="Url image" formControlName="imageUrl">
+        <button [disabled]="petForm.invalid">Valider</button>
+    </form>
+</div>
